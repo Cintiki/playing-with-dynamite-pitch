@@ -7,12 +7,15 @@
 
   <style>
     :root {
+      --ink: #0b1820;
+      --navy: #102634;
+      --cream: #f4ead7;
+      --paper: #ead8b8;
+      --gold: #d99a28;
+      --red: #b43a2b;
+      --blue: #2576a8;
+      --muted: #bda98d;
       --black: #111111;
-      --cream: #f7f1e5;
-      --gold: #f0b33c;
-      --red: #b53a2e;
-      --blue: #243b62;
-      --muted: #c9c0b2;
     }
 
     * {
@@ -21,528 +24,836 @@
 
     body {
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--black);
+      background: var(--ink);
       color: var(--cream);
+      font-family: Arial, Helvetica, sans-serif;
     }
 
-    section {
-      padding: 80px 24px;
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
-    .wrap {
-      max-width: 1200px;
-      margin: 0 auto;
+    .page {
+      overflow: hidden;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 18px 7vw;
+      background: rgba(11, 24, 32, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(244, 234, 215, 0.12);
+    }
+
+    .logo {
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      line-height: 0.9;
+      text-transform: uppercase;
+      font-size: 18px;
+    }
+
+    .logo span {
+      color: var(--red);
+      display: block;
+      font-size: 22px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 26px;
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(244, 234, 215, 0.82);
+    }
+
+    .nav-cta {
+      padding: 10px 16px;
+      border: 1px solid rgba(244, 234, 215, 0.3);
+      background: var(--red);
+      color: var(--cream);
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 800;
     }
 
     .hero {
-      min-height: 90vh;
-      display: flex;
-      align-items: center;
+      min-height: 760px;
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 40px;
+      padding: 70px 7vw 60px;
       background:
-        radial-gradient(circle at 20% 10%, rgba(240, 179, 60, 0.22), transparent 34%),
-        radial-gradient(circle at 80% 20%, rgba(181, 58, 46, 0.20), transparent 30%),
-        linear-gradient(135deg, rgba(255,255,255,0.05), transparent 45%);
-      border-bottom: 1px solid rgba(255,255,255,0.12);
+        radial-gradient(circle at 20% 20%, rgba(217, 154, 40, 0.18), transparent 28%),
+        radial-gradient(circle at 85% 18%, rgba(180, 58, 43, 0.20), transparent 30%),
+        linear-gradient(135deg, #0b1820 0%, #102634 100%);
+      border-bottom: 1px solid rgba(244, 234, 215, 0.15);
     }
 
     .eyebrow {
-      display: inline-block;
-      border: 1px solid rgba(240,179,60,0.45);
-      background: rgba(240,179,60,0.10);
       color: var(--gold);
-      padding: 10px 14px;
-      border-radius: 999px;
-      text-transform: uppercase;
+      font-weight: 900;
       letter-spacing: 0.2em;
+      text-transform: uppercase;
       font-size: 13px;
-      font-weight: 800;
-      margin-bottom: 24px;
+      margin-bottom: 18px;
     }
 
     h1 {
-      font-size: clamp(54px, 9vw, 112px);
-      line-height: 0.9;
       margin: 0;
+      font-size: clamp(58px, 8vw, 118px);
+      line-height: 0.88;
       letter-spacing: -0.06em;
+      text-transform: uppercase;
+      font-weight: 950;
     }
 
-    h2 {
-      font-size: clamp(36px, 5vw, 64px);
-      line-height: 0.95;
-      margin: 0 0 28px;
-      letter-spacing: -0.045em;
+    h1 .with {
+      display: block;
+      color: #5f7d8d;
+      font-size: 0.48em;
+      letter-spacing: 0.08em;
+      margin: 10px 0;
     }
 
-    h3 {
-      margin: 0 0 12px;
-      font-size: 24px;
+    h1 .red {
+      color: var(--red);
     }
 
-    p {
-      color: var(--muted);
+    .hero-copy {
+      max-width: 560px;
+      margin-top: 26px;
       font-size: 18px;
       line-height: 1.55;
-      margin: 0;
+      color: rgba(244, 234, 215, 0.85);
     }
 
-    .hero p {
-      max-width: 820px;
-      margin-top: 28px;
-      font-size: clamp(21px, 2.3vw, 31px);
-    }
-
-    .gold {
-      color: var(--gold);
-    }
-
-    .tags {
+    .button-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 40px;
+      gap: 14px;
+      margin-top: 30px;
     }
 
-    .tag {
-      padding: 12px 16px;
-      border-radius: 999px;
-      background: var(--cream);
-      color: var(--black);
-      text-transform: uppercase;
-      font-size: 13px;
-      letter-spacing: 0.08em;
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 22px;
+      border: 1px solid rgba(244, 234, 215, 0.35);
       font-weight: 900;
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
     }
 
-    .tag.blue {
-      background: var(--blue);
-      color: white;
-    }
-
-    .tag.red {
-      background: var(--red);
-      color: white;
-    }
-
-    .tag.gold {
+    .button.primary {
       background: var(--gold);
-      color: black;
+      color: var(--black);
+      border-color: var(--gold);
     }
 
-    .grid-3 {
+    .balance {
+      margin-top: 22px;
+      color: rgba(244, 234, 215, 0.58);
+      font-size: 12px;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .hero-board {
+      position: relative;
+      min-height: 560px;
+    }
+
+    .paper-photo {
+      position: absolute;
+      left: 18%;
+      top: 8%;
+      width: 48%;
+      min-height: 360px;
+      background: var(--paper);
+      color: var(--black);
+      padding: 14px;
+      transform: rotate(4deg);
+      box-shadow: 0 24px 50px rgba(0,0,0,0.35);
+    }
+
+    .portrait-placeholder {
+      height: 310px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background:
+        linear-gradient(135deg, rgba(0,0,0,0.35), rgba(255,255,255,0.08)),
+        #6d523a;
+      color: rgba(255,255,255,0.82);
+      text-align: center;
+      padding: 20px;
+      font-weight: 800;
+      line-height: 1.3;
+    }
+
+    .sticky {
+      position: absolute;
+      left: 4%;
+      top: 34%;
+      width: 150px;
+      min-height: 150px;
+      background: #e7cd55;
+      color: #101010;
+      padding: 20px;
+      transform: rotate(-10deg);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.32);
+      font-size: 16px;
+      font-weight: 800;
+    }
+
+    .sticky .llama {
+      font-size: 70px;
+      display: block;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .ribbon {
+      position: absolute;
+      right: 16%;
+      top: 2%;
+      width: 110px;
+      height: 180px;
+      background: var(--blue);
+      color: var(--cream);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-weight: 900;
+      font-size: 15px;
+      line-height: 1.15;
+      border-radius: 50% 50% 8px 8px;
+      box-shadow: 0 18px 34px rgba(0,0,0,0.3);
+    }
+
+    .slate {
+      position: absolute;
+      right: 3%;
+      top: 42%;
+      width: 330px;
+      background: #171717;
+      border: 3px solid rgba(244,234,215,0.28);
+      color: var(--cream);
+      padding: 18px;
+      transform: rotate(-2deg);
+      box-shadow: 0 20px 45px rgba(0,0,0,0.35);
+    }
+
+    .slate-top {
+      height: 38px;
+      margin: -18px -18px 16px;
+      background: repeating-linear-gradient(
+        135deg,
+        #111 0,
+        #111 24px,
+        #eee 24px,
+        #eee 48px
+      );
+      opacity: 0.88;
+    }
+
+    .slate-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      gap: 8px;
+      text-align: center;
+      border-top: 1px solid rgba(244,234,215,0.3);
+      border-bottom: 1px solid rgba(244,234,215,0.3);
+      padding: 10px 0;
+      margin: 10px 0;
     }
 
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
+    .dynamite {
+      position: absolute;
+      right: -1%;
+      top: 22%;
+      width: 86px;
+      height: 250px;
+      background: repeating-linear-gradient(
+        90deg,
+        #8d241d 0,
+        #8d241d 22px,
+        #c44534 22px,
+        #c44534 44px
+      );
+      border-radius: 14px;
+      transform: rotate(-5deg);
+      box-shadow: 0 20px 42px rgba(0,0,0,0.35);
     }
 
-    .card {
-      border: 1px solid rgba(255,255,255,0.12);
-      background: rgba(255,255,255,0.045);
-      border-radius: 26px;
-      padding: 28px;
+    .note-card {
+      position: absolute;
+      left: 40%;
+      bottom: 9%;
+      width: 330px;
+      background: var(--paper);
+      color: var(--black);
+      padding: 18px 24px;
+      transform: rotate(-3deg);
+      box-shadow: 0 18px 38px rgba(0,0,0,0.3);
+      font-family: "Courier New", monospace;
+      font-size: 18px;
+      line-height: 1.35;
     }
 
-    .percent {
-      font-size: 56px;
-      font-weight: 950;
-      color: var(--gold);
-      margin-bottom: 16px;
+    section {
+      padding: 76px 7vw;
     }
 
     .cream-section {
       background: var(--cream);
-      color: var(--black);
+      color: var(--ink);
     }
 
-    .cream-section p {
-      color: rgba(0,0,0,0.68);
+    .dark-section {
+      background: var(--navy);
     }
 
-    .approach-card {
-      min-height: 230px;
-    }
-
-    .approach-card.black {
-      background: var(--black);
-      color: var(--cream);
-    }
-
-    .approach-card.blue {
-      background: var(--blue);
-      color: white;
-    }
-
-    .approach-card.red {
-      background: var(--red);
-      color: white;
-    }
-
-    .approach-card.gold {
-      background: var(--gold);
-      color: black;
-    }
-
-    .approach-card p {
-      color: rgba(255,255,255,0.75);
-    }
-
-    .approach-card.gold p {
-      color: rgba(0,0,0,0.7);
-    }
-
-    .slide-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .slide-card {
-      overflow: hidden;
-      border-radius: 26px;
-      border: 1px solid rgba(255,255,255,0.12);
-      background: rgba(255,255,255,0.045);
-    }
-
-    .slide-preview {
-      aspect-ratio: 16 / 9;
-      background: linear-gradient(135deg, var(--cream) 0%, var(--cream) 48%, var(--gold) 48%, var(--gold) 58%, var(--black) 58%);
-      color: black;
-      padding: 20px;
-      display: flex;
-    }
-
-    .slide-inner {
-      border: 2px solid rgba(0,0,0,0.18);
-      background: rgba(255,255,255,0.55);
-      border-radius: 18px;
-      padding: 18px;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .slide-kicker {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.22em;
-      font-weight: 900;
-    }
-
-    .slide-title {
-      font-size: 30px;
-      line-height: 0.92;
-      font-weight: 950;
+    h2 {
+      margin: 0 0 26px;
+      font-size: clamp(36px, 4.8vw, 68px);
+      line-height: 0.96;
       letter-spacing: -0.05em;
     }
 
-    .slide-copy {
-      padding: 22px;
+    .section-intro {
+      max-width: 780px;
+      font-size: 20px;
+      line-height: 1.55;
+      color: rgba(244, 234, 215, 0.78);
     }
 
-    .rituals {
-      background: #181818;
+    .cream-section .section-intro {
+      color: rgba(11, 24, 32, 0.72);
     }
 
-    .ritual-grid {
+    .read-block {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .read-card {
+      background: rgba(11,24,32,0.06);
+      border: 1px solid rgba(11,24,32,0.18);
+      padding: 34px;
+      border-radius: 0;
+      font-size: 22px;
+      line-height: 1.5;
+      color: rgba(11,24,32,0.78);
+    }
+
+    .framework-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 40px;
+      align-items: end;
+      margin-bottom: 38px;
+    }
+
+    .framework-header p {
+      max-width: 520px;
+      color: rgba(244,234,215,0.76);
+      font-size: 18px;
+      line-height: 1.5;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
       gap: 16px;
     }
 
-    .ritual {
+    .step-card {
+      position: relative;
+      min-height: 255px;
       background: var(--cream);
-      color: var(--black);
-      border-radius: 24px;
+      color: var(--ink);
+      padding: 24px 18px;
+      border-bottom: 8px solid var(--gold);
+      box-shadow: 0 14px 32px rgba(0,0,0,0.25);
+    }
+
+    .step-card:nth-child(2),
+    .step-card:nth-child(5) {
+      border-bottom-color: var(--red);
+    }
+
+    .step-card:nth-child(3) {
+      border-bottom-color: var(--blue);
+    }
+
+    .step-number {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--blue);
+      color: white;
+      font-weight: 900;
+      margin-bottom: 18px;
+    }
+
+    .step-card h3 {
+      margin: 0 0 12px;
+      color: var(--red);
+      font-size: 25px;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .step-card p {
+      margin: 0;
+      color: rgba(11,24,32,0.72);
+      line-height: 1.45;
+      font-size: 15px;
+    }
+
+    .character-note {
+      margin-top: 28px;
+      border: 1px dashed rgba(244,234,215,0.35);
+      padding: 20px;
+      color: rgba(244,234,215,0.75);
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .system-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 36px;
+    }
+
+    .system-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(244,234,215,0.16);
       padding: 24px;
-      min-height: 150px;
+      min-height: 210px;
+    }
+
+    .system-card h3 {
+      margin: 0 0 12px;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 17px;
+    }
+
+    .system-card p {
+      margin: 0;
+      color: rgba(244,234,215,0.76);
+      line-height: 1.5;
+    }
+
+    .swatches {
+      display: flex;
+      gap: 7px;
+      margin-top: 18px;
+    }
+
+    .swatch {
+      width: 34px;
+      height: 58px;
+      border: 1px solid rgba(255,255,255,0.25);
+    }
+
+    .slides {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 36px;
+    }
+
+    .slide-card {
+      background: var(--cream);
+      color: var(--ink);
+      min-height: 220px;
+      padding: 22px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      border: 1px solid rgba(11,24,32,0.18);
+      box-shadow: 0 14px 30px rgba(0,0,0,0.18);
     }
 
-    .cue {
-      display: inline-block;
-      width: fit-content;
-      background: var(--black);
+    .slide-card.dark {
+      background: var(--navy);
+      color: var(--cream);
+    }
+
+    .slide-kicker {
       color: var(--gold);
-      border-radius: 999px;
-      padding: 6px 10px;
       font-size: 11px;
+      letter-spacing: 0.18em;
+      font-weight: 900;
       text-transform: uppercase;
-      letter-spacing: 0.16em;
-      font-weight: 950;
     }
 
-    .ritual strong {
-      font-size: 25px;
-      line-height: 1.05;
+    .slide-card h3 {
+      font-size: 32px;
+      line-height: 0.96;
+      margin: 0;
+      letter-spacing: -0.04em;
+    }
+
+    .fit-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .fit-copy {
+      font-size: 21px;
+      line-height: 1.55;
+      color: rgba(11,24,32,0.72);
+    }
+
+    .fit-card {
+      background: var(--ink);
+      color: var(--cream);
+      padding: 36px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.22);
+    }
+
+    .fit-card p {
+      color: rgba(244,234,215,0.78);
+      line-height: 1.55;
     }
 
     .footer {
-      background: var(--cream);
-      color: var(--black);
-      border-top: 1px solid rgba(255,255,255,0.12);
+      background: var(--red);
+      color: var(--cream);
+      text-align: center;
+      padding: 70px 7vw;
+    }
+
+    .footer h2 {
+      margin-bottom: 18px;
     }
 
     .footer p {
-      color: rgba(0,0,0,0.65);
+      max-width: 680px;
+      margin: 0 auto 28px;
+      color: rgba(244,234,215,0.85);
+      font-size: 20px;
+      line-height: 1.5;
     }
 
-    .button {
-      display: inline-block;
-      margin-top: 28px;
-      padding: 16px 24px;
-      border-radius: 999px;
-      background: var(--black);
-      color: var(--gold);
-      text-decoration: none;
-      text-transform: uppercase;
-      font-weight: 950;
-      letter-spacing: 0.1em;
-    }
-
-    @media (max-width: 900px) {
-      .grid-3,
-      .grid-2,
-      .slide-grid,
-      .ritual-grid {
+    @media (max-width: 1000px) {
+      .hero,
+      .read-block,
+      .fit-grid {
         grid-template-columns: 1fr;
       }
 
-      section {
-        padding: 58px 20px;
+      .hero-board {
+        min-height: 680px;
       }
 
-      .hero {
-        min-height: auto;
+      .steps,
+      .system-grid,
+      .slides {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .steps,
+      .system-grid,
+      .slides {
+        grid-template-columns: 1fr;
+      }
+
+      .paper-photo {
+        left: 5%;
+        width: 70%;
+      }
+
+      .slate {
+        width: 270px;
+        right: 0;
+      }
+
+      .note-card {
+        left: 8%;
+        width: 280px;
       }
     }
   </style>
 </head>
 
 <body>
-  <section class="hero">
-    <div class="wrap">
-      <div class="eyebrow">Visual system pitch</div>
-      <h1>Playing with <span class="gold">Dynamite</span></h1>
-      <p>
-        A keynote identity system where executive focus meets film-set energy,
-        indie nostalgia, and just enough weirdness to make the room remember it.
-      </p>
+  <div class="page">
+    <nav class="nav">
+      <a class="logo" href="#">
+        Playing with
+        <span>Dynamite</span>
+      </a>
 
-      <div class="tags">
-        <span class="tag">Sundance poster</span>
-        <span class="tag blue">Apple keynote</span>
-        <span class="tag red">County fair</span>
-        <span class="tag gold">Film ritual</span>
+      <div class="nav-links">
+        <a href="#brief">Brief</a>
+        <a href="#framework">Framework</a>
+        <a href="#system">Visual System</a>
+        <a href="#slides">Slides</a>
+        <a href="#contact">Contact</a>
       </div>
-    </div>
-  </section>
 
-  <section>
-    <div class="wrap">
-      <h2>The mix is the brand.</h2>
+      <a class="nav-cta" href="mailto:accable01@gmail.com">Let’s Talk</a>
+    </nav>
 
-      <div class="grid-3">
-        <div class="card">
-          <div class="percent">40%</div>
-          <h3>Powerhouse Thought Leadership</h3>
-          <p>Executive clarity, strong hierarchy, confident keynote structure.</p>
-        </div>
-
-        <div class="card">
-          <div class="percent">30%</div>
-          <h3>Cinematic</h3>
-          <p>Film language, title-card rhythm, story beats, production texture.</p>
-        </div>
-
-        <div class="card">
-          <div class="percent">30%</div>
-          <h3>Nostalgic + Weird</h3>
-          <p>County fair charm, awkward school-photo warmth, analog personality.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="cream-section">
-    <div class="wrap grid-2">
+    <header class="hero">
       <div>
-        <div class="eyebrow">Approach</div>
-        <h2>Corporate safe. Cinematic special. Weird enough to stick.</h2>
+        <div class="eyebrow">Exec focus. Film set energy. Indie heart.</div>
+
+        <h1>
+          Playing
+          <span class="with">with</span>
+          <span class="red">Dynamite</span>
+        </h1>
+
+        <p class="hero-copy">
+          A visual pitch for a keynote system where executive clarity meets film production ritual,
+          indie nostalgia, and memorable weirdness.
+        </p>
+
+        <div class="button-row">
+          <a class="button primary" href="#framework">Explore the System →</a>
+          <a class="button" href="#contact">Contact AC</a>
+        </div>
+
+        <div class="balance">
+          40% corporate clarity / 30% cinematic energy / 30% indie charm
+        </div>
+      </div>
+
+      <div class="hero-board">
+        <div class="paper-photo">
+          <div class="portrait-placeholder">
+            Sean portrait treatment<br />
+            vintage corduroy / thoughtful producer pose
+          </div>
+        </div>
+
+        <div class="sticky">
+          llama note
+          <span class="llama">♞</span>
+        </div>
+
+        <div class="ribbon">
+          Ideas<br />That<br />Win
+        </div>
+
+        <div class="dynamite"></div>
+
+        <div class="slate">
+          <div class="slate-top"></div>
+          <strong>PROD.</strong> Playing with Dynamite
+          <div class="slate-grid">
+            <div>Scene<br /><strong>1</strong></div>
+            <div>Take<br /><strong>1</strong></div>
+            <div>Roll<br /><strong>Many</strong></div>
+          </div>
+          <div><strong>Director:</strong> You?</div>
+          <div><strong>Camera:</strong> Curiosity</div>
+          <div><strong>Date:</strong> Today</div>
+        </div>
+
+        <div class="note-card">
+          Thought Leadership<br />
+          + Indie Authenticity<br />
+          = Memorable Impact
+        </div>
+      </div>
+    </header>
+
+    <section id="brief" class="cream-section">
+      <div class="read-block">
+        <div>
+          <div class="eyebrow">My read on the brief</div>
+          <h2>Corporate safe. Cinematic special. Weird enough to stick.</h2>
+        </div>
+
+        <div class="read-card">
+          This should not feel like a normal corporate keynote deck. It should feel like a clean executive system that got handed a film slate, a county fair ribbon, and a box of old school photos.
+          <br /><br />
+          The corporate structure makes the room trust it. The cinematic language makes it feel important. The nostalgic weirdness makes it memorable.
+        </div>
+      </div>
+    </section>
+
+    <section id="framework" class="dark-section">
+      <div class="framework-header">
+        <div>
+          <div class="eyebrow">The keynote framework</div>
+          <h2>Rebuilding the Hollywood OS.</h2>
+        </div>
+
         <p>
-          The goal is not to make a movie poster or a corporate deck.
-          The goal is to build a visual operating system that can hold a keynote,
-          a reel, a website, and promotional materials without losing the homespun
-          personality of the stories.
+          Sean’s existing circular framework has the right idea. The opportunity is to rebuild it as a branded keynote system with stronger personality, clearer rhythm, and custom character-driven graphics.
         </p>
       </div>
 
-      <div class="grid-2">
-        <div class="card approach-card black">
-          <h3>Keynote clarity</h3>
-          <p>Simple hierarchy. Big ideas. Clean reads from the back of the room.</p>
+      <div class="steps">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <h3>Picture’s Up!</h3>
+          <p>Preparation ends. Team focus begins.</p>
         </div>
 
-        <div class="card approach-card blue">
-          <h3>Film language</h3>
-          <p>Slate marks, title cards, production cues, and story-beat pacing.</p>
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <h3>Rolling!</h3>
+          <p>The room is live. Energy starts moving.</p>
         </div>
 
-        <div class="card approach-card red">
-          <h3>Indie warmth</h3>
-          <p>Handmade edges, nostalgia, awkward charm, and authentic imperfection.</p>
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <h3>Action!</h3>
+          <p>The goal is clear. Work officially begins.</p>
         </div>
 
-        <div class="card approach-card gold">
-          <h3>Repeatable system</h3>
-          <p>A design kit that can stretch across slides, video titles, website, and promo.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="wrap">
-      <h2>Slide system preview</h2>
-
-      <div class="slide-grid">
-        <div class="slide-card">
-          <div class="slide-preview">
-            <div class="slide-inner">
-              <div class="slide-kicker">Big Stage</div>
-              <div class="slide-title">Title Opener</div>
-            </div>
-          </div>
-          <div class="slide-copy">
-            <p>A clean keynote launch with one oddball detail that makes it unmistakably human.</p>
-          </div>
+        <div class="step-card">
+          <div class="step-number">4</div>
+          <h3>Cut!</h3>
+          <p>Pause, evaluate, and adjust.</p>
         </div>
 
-        <div class="slide-card">
-          <div class="slide-preview">
-            <div class="slide-inner">
-              <div class="slide-kicker">Behind the Scenes</div>
-              <div class="slide-title">Story Beat</div>
-            </div>
-          </div>
-          <div class="slide-copy">
-            <p>Photo-led layout for film anecdotes, production memories, and personal context.</p>
-          </div>
-        </div>
-
-        <div class="slide-card">
-          <div class="slide-preview">
-            <div class="slide-inner">
-              <div class="slide-kicker">Operating System</div>
-              <div class="slide-title">Framework</div>
-            </div>
-          </div>
-          <div class="slide-copy">
-            <p>Action / Cut / Wrap translated into a simple executive decision model.</p>
-          </div>
-        </div>
-
-        <div class="slide-card">
-          <div class="slide-preview">
-            <div class="slide-inner">
-              <div class="slide-kicker">Video Moment</div>
-              <div class="slide-title">Clip Support</div>
-            </div>
-          </div>
-          <div class="slide-copy">
-            <p>A cinematic frame for clips, title cards, and speaker setup notes.</p>
-          </div>
-        </div>
-
-        <div class="slide-card">
-          <div class="slide-preview">
-            <div class="slide-inner">
-              <div class="slide-kicker">Energy Reset</div>
-              <div class="slide-title">Ritual Marker</div>
-            </div>
-          </div>
-          <div class="slide-copy">
-            <p>Repeatable chapter cards for production-language transitions.</p>
-          </div>
-        </div>
-
-        <div class="slide-card">
-          <div class="slide-preview">
-            <div class="slide-inner">
-              <div class="slide-kicker">That's a Wrap</div>
-              <div class="slide-title">Takeaway</div>
-            </div>
-          </div>
-          <div class="slide-copy">
-            <p>A clear closing slide that gives the audience something useful to carry back.</p>
-          </div>
+        <div class="step-card">
+          <div class="step-number">5</div>
+          <h3>That’s a Wrap!</h3>
+          <p>Finish strong. Something now exists that didn’t this morning.</p>
         </div>
       </div>
-    </div>
-  </section>
 
-  <section class="rituals">
-    <div class="wrap">
-      <h2>Production ritual graphics</h2>
-
-      <div class="ritual-grid">
-        <div class="ritual"><span class="cue">Cue 01</span><strong>Picture's up!</strong></div>
-        <div class="ritual"><span class="cue">Cue 02</span><strong>Rolling!</strong></div>
-        <div class="ritual"><span class="cue">Cue 03</span><strong>Action!</strong></div>
-        <div class="ritual"><span class="cue">Cue 04</span><strong>Cut!</strong></div>
-        <div class="ritual"><span class="cue">Cue 05</span><strong>Going again!</strong></div>
-        <div class="ritual"><span class="cue">Cue 06</span><strong>Moving on!</strong></div>
-        <div class="ritual"><span class="cue">Cue 07</span><strong>Martini is up!</strong></div>
-        <div class="ritual"><span class="cue">Cue 08</span><strong>That's a wrap!</strong></div>
+      <div class="character-note">
+        Character art direction: use AC’s camera-head director illustrations as the framework mascots — pointing, calling action, and watching from the chair. This replaces the old circular diagram with something custom, memorable, and ownable.
       </div>
+    </section>
 
-      <p style="max-width: 820px; margin-top: 32px;">
-        These ritual moments become branded chapter markers — energy resets that keep
-        the keynote moving while reinforcing the film-production operating system.
+    <section id="system">
+      <div class="eyebrow">Visual system</div>
+      <h2>A pitch deck language with stage polish and county fair soul.</h2>
+      <p class="section-intro">
+        The system should feel structured enough for executives and tactile enough to carry Sean’s offbeat story world.
       </p>
-    </div>
-  </section>
 
-  <section>
-    <div class="wrap grid-2">
-      <div class="card">
-        <h2>Motion title direction</h2>
-        <p>
-          Video titles should feel like a festival trailer got invited to a corporate offsite:
-          clean lower-thirds, cinematic chapter cards, quick production cue interruptions,
-          and analog texture used with restraint.
-        </p>
+      <div class="system-grid">
+        <div class="system-card">
+          <h3>Color</h3>
+          <p>Deep navy, warm cream, carnival red, mustard, ribbon blue, paper tan, ink black.</p>
+          <div class="swatches">
+            <div class="swatch" style="background:#0b1820"></div>
+            <div class="swatch" style="background:#f4ead7"></div>
+            <div class="swatch" style="background:#b43a2b"></div>
+            <div class="swatch" style="background:#d99a28"></div>
+            <div class="swatch" style="background:#2576a8"></div>
+          </div>
+        </div>
+
+        <div class="system-card">
+          <h3>Type</h3>
+          <p>Bold poster headlines, clean keynote body copy, typewriter labels, handwritten accents.</p>
+        </div>
+
+        <div class="system-card">
+          <h3>Graphic language</h3>
+          <p>Tape, paper scraps, clapperboards, ribbon badges, note cards, old photos, film-strip edges.</p>
+        </div>
+
+        <div class="system-card">
+          <h3>Tone</h3>
+          <p>Safe enough for the corporate room. Weird enough for people to remember it afterward.</p>
+        </div>
       </div>
+    </section>
 
-      <div class="card">
-        <h2>Why AC Cable fits</h2>
-        <p>
-          I approach this as visual storytelling, not just slide decoration.
-          The right solution is a flexible presentation system with personality — one that
-          can hold executive attention while still carrying the oddball charm that makes
-          the talk unforgettable.
-        </p>
+    <section id="slides" class="cream-section">
+      <div class="eyebrow">Slide template direction</div>
+      <h2>Four slide families to start the system.</h2>
+      <p class="section-intro">
+        The deck should work as a professional keynote, but each slide family can carry a different kind of story energy.
+      </p>
+
+      <div class="slides">
+        <div class="slide-card dark">
+          <div class="slide-kicker">Title</div>
+          <h3>Make the room lean in.</h3>
+          <p>Big poster energy, clean enough to open a corporate keynote.</p>
+        </div>
+
+        <div class="slide-card">
+          <div class="slide-kicker">Story</div>
+          <h3>Behind the scenes.</h3>
+          <p>Photo-led storytelling with note-card captions and film-set cues.</p>
+        </div>
+
+        <div class="slide-card dark">
+          <div class="slide-kicker">Framework</div>
+          <h3>The system underneath.</h3>
+          <p>Clear diagrams, production rituals, and memorable step cards.</p>
+        </div>
+
+        <div class="slide-card">
+          <div class="slide-kicker">Media</div>
+          <h3>Clips that land.</h3>
+          <p>Video and image support slides with cinematic title-card structure.</p>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="footer">
-    <div class="wrap">
+    <section class="cream-section">
+      <div class="fit-grid">
+        <div>
+          <div class="eyebrow">Why AC Cable fits</div>
+          <h2>Visual storytelling, not slide decoration.</h2>
+          <p class="fit-copy">
+            I’ve spent my career building visual systems for animation, games, books, VR, branding, and production art direction. This brief lives in the overlap I understand best: structure with personality, presentation with story, and professional polish without sanding off the weird charm.
+          </p>
+        </div>
+
+        <div class="fit-card">
+          <h3>What I’d bring</h3>
+          <p>
+            A flexible keynote system: typography, color, visual cues, slide families, character graphics, and motion-title direction that can stretch across keynote slides, website, highlight reel, and promotional materials.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer id="contact" class="footer">
       <h2>Let’s build the fun into the system.</h2>
       <p>
-        Favorite movies: Back to the Future, The Princess Bride, Jaws,
-        Raising Arizona, The Royal Tenenbaums, Napoleon Dynamite.
+        A quick visual response for Playing with Dynamite — designed to show the direction, not over-explain it.
       </p>
-      <a class="button" href="mailto:accable01@gmail.com">Contact AC</a>
-    </div>
-  </section>
+      <a class="button primary" href="mailto:accable01@gmail.com">Contact AC →</a>
+    </footer>
+  </div>
 </body>
 </html>
