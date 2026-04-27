@@ -85,19 +85,35 @@
       font-weight: 800;
     }
 
-    .hero {
-      min-height: 760px;
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 40px;
-      align-items: center;
-      padding: 70px 7vw 60px;
-      background:
-        radial-gradient(circle at 20% 20%, rgba(217, 154, 40, 0.18), transparent 28%),
-        radial-gradient(circle at 85% 18%, rgba(180, 58, 43, 0.20), transparent 30%),
-        linear-gradient(135deg, #0b1820 0%, #102634 100%);
-      border-bottom: 1px solid rgba(244, 234, 215, 0.15);
-    }
+.hero {
+  position: relative;
+  min-height: 760px;
+  display: flex;
+  align-items: center;
+  padding: 70px 7vw 60px;
+  overflow: hidden;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(11, 24, 32, 0.96) 0%,
+      rgba(11, 24, 32, 0.88) 28%,
+      rgba(11, 24, 32, 0.58) 52%,
+      rgba(11, 24, 32, 0.20) 74%,
+      rgba(11, 24, 32, 0.10) 100%
+    ),
+    url("assets/assetshero-mockup.png") center center / cover no-repeat,
+    linear-gradient(135deg, #0b1820 0%, #102634 100%);
+  border-bottom: 1px solid rgba(244, 234, 215, 0.15);
+}.hero > div:first-child {
+  position: relative;
+  z-index: 2;
+  max-width: 620px;
+}
+
+.hero-board,
+.hero-mockup {
+  display: none;
+}
 
     .eyebrow {
       color: var(--gold);
