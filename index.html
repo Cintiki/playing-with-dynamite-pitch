@@ -40,6 +40,10 @@
       text-decoration: none;
     }
 
+    p {
+      margin: 0;
+    }
+
     .page {
       overflow: hidden;
     }
@@ -113,7 +117,7 @@
       border-bottom: 1px solid rgba(244, 234, 215, 0.15);
     }
 
-    .hero > div:first-child {
+    .hero-content {
       position: relative;
       z-index: 2;
       max-width: 640px;
@@ -217,10 +221,6 @@
       margin: 0;
     }
 
-    p {
-      margin: 0;
-    }
-
     .section-intro {
       max-width: 780px;
       font-size: 20px;
@@ -231,8 +231,6 @@
     .cream-section .section-intro {
       color: rgba(11, 24, 32, 0.72);
     }
-
-    /* KEYNOTE PREVIEW */
 
     .deck-preview {
       background:
@@ -445,8 +443,6 @@
       font-weight: 900;
     }
 
-    /* HOLLYWOOD OS */
-
     .framework-top {
       display: grid;
       grid-template-columns: 0.92fr 1.08fr;
@@ -460,79 +456,6 @@
       color: rgba(244,234,215,0.76);
       font-size: 19px;
       line-height: 1.55;
-    }
-
-    .os-board {
-      background:
-        linear-gradient(135deg, rgba(244,234,215,0.08), rgba(244,234,215,0.02)),
-        rgba(0,0,0,0.12);
-      border: 1px solid rgba(244,234,215,0.16);
-      padding: 24px;
-      box-shadow: 0 20px 44px rgba(0,0,0,0.25);
-    }
-
-    .os-steps {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 14px;
-    }
-
-    .os-card {
-      min-height: 250px;
-      background: var(--cream2);
-      color: var(--ink);
-      padding: 22px 18px;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      border-bottom: 8px solid var(--gold);
-      box-shadow: 0 10px 26px rgba(0,0,0,0.18);
-    }
-
-    .os-card:nth-child(2),
-    .os-card:nth-child(5) {
-      border-bottom-color: var(--red);
-    }
-
-    .os-card:nth-child(3) {
-      border-bottom-color: var(--blue);
-    }
-
-    .os-number {
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      background: var(--blue);
-      color: white;
-      display: grid;
-      place-items: center;
-      font-weight: 900;
-      margin-bottom: 18px;
-    }
-
-    .os-card h3 {
-      color: var(--red);
-      font-size: 27px;
-      line-height: 0.95;
-      letter-spacing: -0.04em;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-    }
-
-    .os-card p {
-      font-size: 15px;
-      line-height: 1.42;
-      color: rgba(11,24,32,0.74);
-    }
-
-    .os-behavior {
-      margin-top: 18px;
-      color: var(--blue);
-      font-size: 11px;
-      letter-spacing: 0.13em;
-      text-transform: uppercase;
-      font-weight: 900;
     }
 
     .framework-image-wrap {
@@ -549,85 +472,110 @@
       height: auto;
     }
 
-    /* RITUAL GRAPHICS */
-
-    .ritual-grid {
+    .step-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-      margin-top: 38px;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      margin-top: 40px;
     }
 
-    .ritual-card {
-      background: var(--navy);
-      color: var(--cream);
-      min-height: 180px;
-      padding: 24px;
-      position: relative;
-      overflow: hidden;
-      border: 1px solid rgba(11,24,32,0.16);
-      box-shadow: 0 14px 30px rgba(11,24,32,0.14);
-    }
-
-    .ritual-card.light {
+    .step-card {
       background: var(--cream2);
       color: var(--ink);
+      min-height: 260px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-bottom: 8px solid var(--gold);
+      box-shadow: 0 14px 32px rgba(0,0,0,0.20);
     }
 
-    .ritual-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(135deg, transparent 0%, transparent 62%, rgba(217,154,40,0.22) 62%, rgba(217,154,40,0.22) 100%);
-      pointer-events: none;
+    .step-card:nth-child(2),
+    .step-card:nth-child(5) {
+      border-bottom-color: var(--red);
     }
 
-    .ritual-card .cue {
-      position: relative;
-      z-index: 2;
-      color: var(--gold);
-      font-size: 11px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
+    .step-card:nth-child(3) {
+      border-bottom-color: var(--blue);
+    }
+
+    .step-number {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--blue);
+      color: white;
+      display: grid;
+      place-items: center;
       font-weight: 900;
-      margin-bottom: 24px;
+      margin-bottom: 18px;
     }
 
-    .ritual-card h3 {
-      position: relative;
-      z-index: 2;
-      font-size: 32px;
-      line-height: 0.95;
+    .step-card h3 {
+      color: var(--red);
+      font-size: 26px;
+      line-height: 0.96;
       letter-spacing: -0.04em;
       text-transform: uppercase;
+      margin-bottom: 12px;
     }
 
-    .ritual-card p {
-      position: relative;
-      z-index: 2;
-      margin-top: 16px;
-      line-height: 1.45;
-      opacity: 0.78;
+    .step-card p {
+      font-size: 15px;
+      line-height: 1.42;
+      color: rgba(11,24,32,0.74);
     }
 
-    /* VISUAL SYSTEM */
+    .behavior {
+      margin-top: 18px;
+      color: var(--blue);
+      font-size: 11px;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      font-weight: 900;
+    }
 
-    .system-grid {
+    .slide-system-grid,
+    .why-grid,
+    .about-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-      margin-top: 36px;
+      gap: 22px;
+      margin-top: 40px;
     }
 
-    .system-card {
+    .slide-system-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .why-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .about-grid {
+      grid-template-columns: 0.8fr 1.2fr;
+      align-items: center;
+    }
+
+    .system-card,
+    .why-card,
+    .about-card {
       background: rgba(255,255,255,0.04);
       border: 1px solid rgba(244,234,215,0.16);
-      padding: 24px;
+      padding: 26px;
       min-height: 210px;
     }
 
-    .system-card h3 {
+    .cream-section .system-card,
+    .cream-section .why-card,
+    .cream-section .about-card {
+      background: rgba(11,24,32,0.06);
+      border: 1px solid rgba(11,24,32,0.15);
+    }
+
+    .system-card h3,
+    .why-card h3,
+    .about-card h3 {
       margin: 0 0 12px;
       color: var(--gold);
       text-transform: uppercase;
@@ -635,25 +583,31 @@
       font-size: 17px;
     }
 
-    .system-card p {
+    .system-card p,
+    .why-card p,
+    .about-card p {
       margin: 0;
-      color: rgba(244,234,215,0.76);
+      color: inherit;
+      opacity: 0.76;
       line-height: 1.5;
     }
 
-    .swatches {
+    .tags {
       display: flex;
-      gap: 7px;
-      margin-top: 18px;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
     }
 
-    .swatch {
-      width: 34px;
-      height: 58px;
-      border: 1px solid rgba(255,255,255,0.25);
+    .tag {
+      padding: 9px 12px;
+      background: var(--navy);
+      color: var(--cream);
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 900;
     }
-
-    /* CLOSE */
 
     .close-section {
       background:
@@ -676,13 +630,14 @@
 
     @media (max-width: 1100px) {
       .deck-grid,
-      .os-steps,
-      .ritual-grid,
-      .system-grid {
+      .step-grid,
+      .slide-system-grid,
+      .why-grid {
         grid-template-columns: 1fr 1fr;
       }
 
-      .framework-top {
+      .framework-top,
+      .about-grid {
         grid-template-columns: 1fr;
       }
 
@@ -706,9 +661,9 @@
       }
 
       .deck-grid,
-      .os-steps,
-      .ritual-grid,
-      .system-grid {
+      .step-grid,
+      .slide-system-grid,
+      .why-grid {
         grid-template-columns: 1fr;
       }
 
@@ -734,8 +689,8 @@
       <div class="nav-links">
         <a href="#preview">Preview</a>
         <a href="#framework">Framework</a>
-        <a href="#rituals">Rituals</a>
-        <a href="#system">System</a>
+        <a href="#steps">Five Steps</a>
+        <a href="#slides">Deck</a>
         <a href="#contact">Contact</a>
       </div>
 
@@ -743,7 +698,7 @@
     </nav>
 
     <header class="hero">
-      <div>
+      <div class="hero-content">
         <div class="eyebrow">Exec focus. Film set energy. Indie heart.</div>
 
         <h1>
@@ -753,26 +708,27 @@
         </h1>
 
         <p class="hero-copy">
-          A visual pitch for a keynote system where executive clarity meets film production ritual,
+          A keynote system where executive clarity meets film production ritual,
           indie nostalgia, and memorable weirdness.
         </p>
 
         <div class="button-row">
-          <a class="button primary" href="#preview">Preview the Deck →</a>
+          <a class="button primary" href="#preview">Preview the Keynote →</a>
           <a class="button" href="#framework">See the Framework</a>
         </div>
 
         <div class="balance">
-          40% corporate clarity / 30% cinematic energy / 30% indie charm
+          40% Corporate Clarity / 30% Cinematic Energy / 30% Indie Charm
         </div>
       </div>
     </header>
 
     <section id="preview" class="cream-section deck-preview">
       <div class="eyebrow">Keynote preview</div>
-      <h2>Four sample moments from the deck.</h2>
+      <h2>A first look at the deck language.</h2>
       <p class="section-intro">
-        The site starts to behave like the finished product: title card, story slide, framework slide, and takeaway.
+        The keynote should feel like a complete visual experience: part leadership system,
+        part film-set ritual, part strange little story machine.
       </p>
 
       <div class="deck-grid">
@@ -783,7 +739,7 @@
             <span>with</span>
             Dynamite
           </div>
-          <p>A confident title card with cinematic scale and handmade personality.</p>
+          <p>A bold title card that gives the keynote scale before the first story begins.</p>
           <div class="deck-prop"></div>
           <div class="deck-footer">Big ideas. Film-set focus. Indie heart.</div>
         </article>
@@ -793,9 +749,9 @@
           <div class="story-layout">
             <div>
               <h3>Behind the Scenes</h3>
-              <p>Stories do the heavy lifting. The design should make each memory feel specific, visual, and useful.</p>
+              <p>A photo-led format for production memories, odd details, and the moments that make the lesson real.</p>
             </div>
-            <div class="photo-card">BTS / Fair / Film memory</div>
+            <div class="photo-card">BTS / film memory</div>
           </div>
           <div class="note-scrap">Great talks don’t just happen. They’re built.</div>
         </article>
@@ -803,11 +759,11 @@
         <article class="deck-slide dark">
           <div class="deck-label">Framework slide</div>
           <h3>Picture’s Up!</h3>
-          <p>Preparation ends. Team focus begins.</p>
+          <p>The film-production calls become a clear operating system for focus, momentum, and creative pressure.</p>
           <div class="mini-steps">
-            <span>Set it up</span>
-            <span>Roll it</span>
-            <span>Take action</span>
+            <span>Align</span>
+            <span>Signal</span>
+            <span>Focus</span>
             <span>Wrap</span>
           </div>
           <div class="deck-footer">Clarity. Story. Action. Repeat.</div>
@@ -816,7 +772,7 @@
         <article class="deck-slide light takeaway-slide">
           <div class="deck-label">Takeaway slide</div>
           <h3>Cut. Reset. Move On.</h3>
-          <p>Leave with one useful thing. Use it tomorrow. Make the rest your next scene.</p>
+          <p>A clean closing language that gives the audience something simple enough to remember and use.</p>
           <div class="chair-mark">★</div>
         </article>
       </div>
@@ -826,62 +782,13 @@
       <div class="framework-top">
         <div>
           <div class="eyebrow">The Hollywood OS</div>
-          <h2>Film-set ritual as executive behavior.</h2>
+          <h2>Film-set ritual becomes executive behavior.</h2>
         </div>
 
         <p>
-          The keynote framework becomes a visual system of production calls: simple enough to remember,
-          clear enough to use, and strange enough to stick.
+          The core keynote idea becomes a branded five-part system: clear enough for a boardroom,
+          cinematic enough for the stage, and memorable enough to travel home with the audience.
         </p>
-      </div>
-
-      <div class="os-board">
-        <div class="os-steps">
-          <article class="os-card">
-            <div>
-              <div class="os-number">1</div>
-              <h3>Picture’s Up!</h3>
-              <p>Preparation ends. Team focus begins.</p>
-            </div>
-            <div class="os-behavior">Align the room</div>
-          </article>
-
-          <article class="os-card">
-            <div>
-              <div class="os-number">2</div>
-              <h3>Rolling!</h3>
-              <p>The signal is clear. Everyone knows the moment has started.</p>
-            </div>
-            <div class="os-behavior">Start cleanly</div>
-          </article>
-
-          <article class="os-card">
-            <div>
-              <div class="os-number">3</div>
-              <h3>Action!</h3>
-              <p>The objective is active. The team moves with shared intent.</p>
-            </div>
-            <div class="os-behavior">Focus the work</div>
-          </article>
-
-          <article class="os-card">
-            <div>
-              <div class="os-number">4</div>
-              <h3>Cut!</h3>
-              <p>Pause without panic. Evaluate what happened and adjust.</p>
-            </div>
-            <div class="os-behavior">Reset with purpose</div>
-          </article>
-
-          <article class="os-card">
-            <div>
-              <div class="os-number">5</div>
-              <h3>That’s a Wrap!</h3>
-              <p>Close the loop. Name the win. Carry the lesson forward.</p>
-            </div>
-            <div class="os-behavior">Finish strong</div>
-          </article>
-        </div>
       </div>
 
       <div class="framework-image-wrap">
@@ -889,106 +796,144 @@
       </div>
     </section>
 
-    <section id="rituals" class="cream-section">
-      <div class="eyebrow">Ritual graphics</div>
-      <h2>Production calls become title cards.</h2>
+    <section id="steps" class="cream-section">
+      <div class="eyebrow">The five-part system</div>
+      <h2>Five calls. One shared language.</h2>
       <p class="section-intro">
-        These are not just labels. They become repeatable graphic moments inside the keynote and highlight reel.
+        Each production call gives the audience a practical behavior they can take back to their team.
       </p>
 
-      <div class="ritual-grid">
-        <article class="ritual-card">
-          <div class="cue">Cue 01</div>
-          <h3>Picture’s Up!</h3>
-          <p>Set the scene before the room starts moving.</p>
+      <div class="step-grid">
+        <article class="step-card">
+          <div>
+            <div class="step-number">01</div>
+            <h3>Picture’s Up!</h3>
+            <p>Preparation ends. Team focus begins.</p>
+          </div>
+          <div class="behavior">Behavior: Align the room.</div>
         </article>
 
-        <article class="ritual-card light">
-          <div class="cue">Cue 02</div>
-          <h3>Rolling!</h3>
-          <p>A visible signal that the system is live.</p>
+        <article class="step-card">
+          <div>
+            <div class="step-number">02</div>
+            <h3>Rolling!</h3>
+            <p>The room is live. Energy starts moving.</p>
+          </div>
+          <div class="behavior">Behavior: Signal the start.</div>
         </article>
 
-        <article class="ritual-card">
-          <div class="cue">Cue 03</div>
-          <h3>Action!</h3>
-          <p>The moment when clarity turns into motion.</p>
+        <article class="step-card">
+          <div>
+            <div class="step-number">03</div>
+            <h3>Action!</h3>
+            <p>The goal is clear. Work officially begins.</p>
+          </div>
+          <div class="behavior">Behavior: Focus the work.</div>
         </article>
 
-        <article class="ritual-card light">
-          <div class="cue">Cue 04</div>
-          <h3>Cut!</h3>
-          <p>A reset point, not a failure point.</p>
+        <article class="step-card">
+          <div>
+            <div class="step-number">04</div>
+            <h3>Cut!</h3>
+            <p>Pause, evaluate, and adjust without panic.</p>
+          </div>
+          <div class="behavior">Behavior: Reset with purpose.</div>
         </article>
 
-        <article class="ritual-card light">
-          <div class="cue">Cue 05</div>
-          <h3>Going Again!</h3>
-          <p>Iteration becomes part of the rhythm.</p>
-        </article>
-
-        <article class="ritual-card">
-          <div class="cue">Cue 06</div>
-          <h3>Moving On!</h3>
-          <p>Momentum is protected by decision.</p>
-        </article>
-
-        <article class="ritual-card light">
-          <div class="cue">Cue 07</div>
-          <h3>Martini Is Up!</h3>
-          <p>The last shot. The room knows the finish is near.</p>
-        </article>
-
-        <article class="ritual-card">
-          <div class="cue">Cue 08</div>
-          <h3>That’s a Wrap!</h3>
-          <p>Close strong. Leave with something usable.</p>
+        <article class="step-card">
+          <div>
+            <div class="step-number">05</div>
+            <h3>That’s a Wrap!</h3>
+            <p>Finish strong. Name the win. Carry the lesson forward.</p>
+          </div>
+          <div class="behavior">Behavior: Close the loop.</div>
         </article>
       </div>
     </section>
 
-    <section id="system" class="dark-section">
-      <div class="eyebrow">Visual system</div>
-      <h2>Stage polish with county fair soul.</h2>
+    <section id="slides" class="dark-section">
+      <div class="eyebrow">Deck language</div>
+      <h2>A slide system built for stories, frameworks, and takeaways.</h2>
       <p class="section-intro">
-        The graphic language has to feel credible in the room while still carrying the oddball charm people remember afterward.
+        The deck should not feel like one repeated template. It needs a small family of slide types
+        that can carry the rhythm of the talk.
       </p>
 
-      <div class="system-grid">
-        <div class="system-card">
-          <h3>Color</h3>
-          <p>Deep navy, warm cream, carnival red, mustard gold, ribbon blue, paper tan, and ink black.</p>
-          <div class="swatches">
-            <div class="swatch" style="background:#0b1820"></div>
-            <div class="swatch" style="background:#f4ead7"></div>
-            <div class="swatch" style="background:#b43a2b"></div>
-            <div class="swatch" style="background:#d99a28"></div>
-            <div class="swatch" style="background:#2576a8"></div>
+      <div class="slide-system-grid">
+        <article class="system-card">
+          <h3>Title Cards</h3>
+          <p>Large, cinematic openings for each major beat.</p>
+        </article>
+
+        <article class="system-card">
+          <h3>Story Slides</h3>
+          <p>Behind-the-scenes images, captions, and small production details that make the lesson feel lived-in.</p>
+        </article>
+
+        <article class="system-card">
+          <h3>Framework Slides</h3>
+          <p>Simple diagrams and step systems that translate film language into leadership behavior.</p>
+        </article>
+
+        <article class="system-card">
+          <h3>Takeaway Slides</h3>
+          <p>Clean closing moments with one useful idea the audience can remember tomorrow.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="about" class="cream-section">
+      <div class="about-grid">
+        <div>
+          <div class="eyebrow">The speaker</div>
+          <h2>Sean Covel turns production stories into leadership systems.</h2>
+        </div>
+
+        <div class="about-card">
+          <h3>Story + system</h3>
+          <p>
+            Sean’s keynote works because the stories are funny, specific, and human — but underneath them is a practical operating system.
+            The visual design should make both sides visible: the warmth of the storyteller and the clarity of the framework.
+          </p>
+
+          <div class="tags">
+            <span class="tag">Producer</span>
+            <span class="tag">Storyteller</span>
+            <span class="tag">Keynote Speaker</span>
+            <span class="tag">Creative Systems Thinker</span>
           </div>
         </div>
+      </div>
+    </section>
 
-        <div class="system-card">
-          <h3>Type</h3>
-          <p>Bold poster headlines, clean keynote body copy, production labels, and small handwritten accents.</p>
-        </div>
+    <section id="why" class="dark-section">
+      <div class="eyebrow">Why it works</div>
+      <h2>Professional enough to trust. Weird enough to remember.</h2>
 
-        <div class="system-card">
-          <h3>Props</h3>
-          <p>Clapperboards, crew badges, fair ribbons, sticky notes, old photos, tape, and the Big Ideas dynamite metaphor.</p>
-        </div>
+      <div class="why-grid">
+        <article class="why-card">
+          <h3>Clear</h3>
+          <p>Strong hierarchy, clean structure, and readable slide systems make the keynote feel credible in an executive room.</p>
+        </article>
 
-        <div class="system-card">
-          <h3>Motion</h3>
-          <p>Title-card cuts, production-call transitions, lower thirds, and graphic cues for the highlight reel.</p>
-        </div>
+        <article class="why-card">
+          <h3>Cinematic</h3>
+          <p>Production cues, title-card language, and film-set rituals make the talk feel larger than a standard business presentation.</p>
+        </article>
+
+        <article class="why-card">
+          <h3>Memorable</h3>
+          <p>The county fair charm, tactile notes, llama weirdness, and Big Ideas dynamite give the audience visual hooks they can recall later.</p>
+        </article>
       </div>
     </section>
 
     <footer id="contact" class="close-section">
-      <h2>This is the direction I’d build from.</h2>
+      <div class="eyebrow">Next step</div>
+      <h2>Let’s make the keynote unforgettable.</h2>
       <p>
-        A keynote system that feels clear enough for executives, cinematic enough for the stage,
-        and strange enough to be remembered after the room clears.
+        This direction can expand into the full keynote deck, video title system,
+        promo page, and supporting graphics.
       </p>
       <a class="button primary" href="mailto:accable01@gmail.com">Contact AC →</a>
     </footer>
