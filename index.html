@@ -9,7 +9,6 @@
     :root {
       --ink: #0b1820;
       --navy: #102634;
-      --navy2: #163142;
       --cream: #f4ead7;
       --cream2: #fff4dc;
       --paper: #ead8b8;
@@ -18,6 +17,7 @@
       --blue: #2576a8;
       --soft-blue: #7fa9bd;
       --black: #111111;
+      --muted: rgba(11, 24, 32, 0.68);
     }
 
     * {
@@ -30,8 +30,8 @@
 
     body {
       margin: 0;
-      background: var(--ink);
-      color: var(--cream);
+      background: var(--cream);
+      color: var(--ink);
       font-family: Arial, Helvetica, sans-serif;
     }
 
@@ -51,19 +51,19 @@
     .nav {
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 30;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 24px;
       padding: 18px 7vw;
-      background: rgba(11, 24, 32, 0.92);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(244, 234, 215, 0.12);
+      background: rgba(11, 24, 32, 0.94);
+      border-bottom: 1px solid rgba(244, 234, 215, 0.14);
+      color: var(--cream);
     }
 
     .logo {
-      font-weight: 900;
+      font-weight: 950;
       letter-spacing: 0.08em;
       line-height: 0.9;
       text-transform: uppercase;
@@ -87,13 +87,12 @@
 
     .nav-cta {
       padding: 10px 16px;
-      border: 1px solid rgba(244, 234, 215, 0.3);
       background: var(--red);
       color: var(--cream);
       font-size: 12px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      font-weight: 800;
+      font-weight: 900;
     }
 
     .hero {
@@ -101,31 +100,30 @@
       min-height: 760px;
       display: flex;
       align-items: center;
-      padding: 70px 7vw 60px;
+      padding: 78px 7vw 68px;
       overflow: hidden;
       background:
         linear-gradient(
           90deg,
-          rgba(11, 24, 32, 0.97) 0%,
-          rgba(11, 24, 32, 0.90) 30%,
-          rgba(11, 24, 32, 0.66) 55%,
-          rgba(11, 24, 32, 0.28) 76%,
-          rgba(11, 24, 32, 0.12) 100%
+          rgba(11, 24, 32, 0.96) 0%,
+          rgba(11, 24, 32, 0.88) 30%,
+          rgba(11, 24, 32, 0.52) 55%,
+          rgba(11, 24, 32, 0.10) 100%
         ),
         url("assets/assetshero-mockup.png") center center / cover no-repeat,
-        linear-gradient(135deg, #0b1820 0%, #102634 100%);
-      border-bottom: 1px solid rgba(244, 234, 215, 0.15);
+        var(--navy);
+      color: var(--cream);
     }
 
     .hero-content {
       position: relative;
       z-index: 2;
-      max-width: 640px;
+      max-width: 650px;
     }
 
     .eyebrow {
       color: var(--gold);
-      font-weight: 900;
+      font-weight: 950;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       font-size: 13px;
@@ -134,7 +132,7 @@
 
     h1 {
       margin: 0;
-      font-size: clamp(58px, 8vw, 118px);
+      font-size: clamp(56px, 8vw, 118px);
       line-height: 0.88;
       letter-spacing: -0.06em;
       text-transform: uppercase;
@@ -158,7 +156,7 @@
       margin-top: 26px;
       font-size: 18px;
       line-height: 1.55;
-      color: rgba(244, 234, 215, 0.88);
+      color: rgba(244, 234, 215, 0.90);
     }
 
     .button-row {
@@ -175,7 +173,7 @@
       min-height: 44px;
       padding: 0 22px;
       border: 1px solid rgba(244, 234, 215, 0.35);
-      font-weight: 900;
+      font-weight: 950;
       font-size: 13px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
@@ -189,456 +187,446 @@
 
     .balance {
       margin-top: 22px;
-      color: rgba(244, 234, 215, 0.68);
+      color: rgba(244, 234, 215, 0.70);
       font-size: 12px;
       letter-spacing: 0.13em;
       text-transform: uppercase;
     }
 
     section {
-      padding: 78px 7vw;
+      padding: 86px 7vw;
     }
 
-    .cream-section {
-      background: var(--cream);
-      color: var(--ink);
-    }
-
-    .dark-section {
-      background:
-        radial-gradient(circle at 70% 20%, rgba(217,154,40,0.10), transparent 28%),
-        var(--navy);
-    }
-
-    h2 {
-      margin: 0 0 22px;
-      font-size: clamp(36px, 4.8vw, 68px);
-      line-height: 0.96;
-      letter-spacing: -0.05em;
-    }
-
-    h3 {
-      margin: 0;
-    }
-
-    .section-intro {
-      max-width: 780px;
-      font-size: 20px;
-      line-height: 1.55;
-      color: rgba(244, 234, 215, 0.78);
-    }
-
-    .cream-section .section-intro {
-      color: rgba(11, 24, 32, 0.72);
-    }
-
-    .deck-preview {
-      background:
-        radial-gradient(circle at 15% 10%, rgba(217,154,40,0.12), transparent 26%),
-        linear-gradient(180deg, #f8ecd4 0%, var(--cream) 100%);
-    }
-
-    .deck-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 22px;
-      margin-top: 42px;
-    }
-
-    .deck-slide {
-      position: relative;
-      min-height: 330px;
-      padding: 24px;
-      border: 1px solid rgba(11,24,32,0.18);
-      box-shadow: 0 18px 34px rgba(11,24,32,0.16);
-      overflow: hidden;
-    }
-
-    .deck-label {
-      position: relative;
-      z-index: 2;
-      color: var(--gold);
-      font-size: 12px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      font-weight: 900;
-      margin-bottom: 22px;
-    }
-
-    .deck-slide.dark {
-      background:
-        radial-gradient(circle at 90% 12%, rgba(217,154,40,0.12), transparent 24%),
-        var(--navy);
-      color: var(--cream);
-    }
-
-    .deck-slide.light {
-      background: #fff4dc;
-      color: var(--ink);
-    }
-
-    .deck-title {
-      position: relative;
-      z-index: 2;
-      font-size: 46px;
-      line-height: 0.9;
-      letter-spacing: -0.05em;
-      text-transform: uppercase;
-      font-weight: 950;
-      color: var(--red);
-    }
-
-    .deck-title span {
-      display: block;
-      color: var(--soft-blue);
-      font-size: 0.48em;
-      letter-spacing: 0.08em;
-      margin: 6px 0;
-    }
-
-    .deck-slide h3 {
-      position: relative;
-      z-index: 2;
-      margin: 0 0 14px;
-      font-size: 34px;
-      line-height: 0.96;
-      letter-spacing: -0.04em;
-    }
-
-    .deck-slide p {
-      position: relative;
-      z-index: 2;
-      line-height: 1.45;
-      color: inherit;
-      opacity: 0.82;
-    }
-
-    .deck-footer {
-      position: absolute;
-      left: 24px;
-      right: 24px;
-      bottom: 22px;
-      padding-top: 14px;
-      border-top: 1px solid rgba(244,234,215,0.28);
-      color: var(--gold);
-      font-size: 12px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      font-weight: 900;
-    }
-
-    .deck-prop {
-      position: absolute;
-      right: -18px;
-      bottom: -26px;
-      width: 105px;
-      height: 190px;
-      background: repeating-linear-gradient(
-        90deg,
-        #8d241d 0,
-        #8d241d 24px,
-        #c44534 24px,
-        #c44534 48px
-      );
-      border-radius: 12px;
-      transform: rotate(-8deg);
-      box-shadow: 0 16px 28px rgba(0,0,0,0.22);
-    }
-
-    .deck-prop::after {
-      content: "BIG IDEAS";
-      position: absolute;
-      left: 18px;
-      top: 35px;
-      color: #111;
-      font-weight: 950;
-      letter-spacing: 0.04em;
-      writing-mode: vertical-rl;
-      transform: rotate(180deg);
-      font-size: 14px;
-    }
-
-    .story-layout {
-      display: grid;
-      grid-template-columns: 1fr 0.82fr;
-      gap: 16px;
-      align-items: start;
-    }
-
-    .photo-card {
-      min-height: 130px;
-      background:
-        linear-gradient(135deg, rgba(37,118,168,0.30), rgba(217,154,40,0.20)),
-        #e6d2ad;
-      border: 8px solid #fff6e6;
-      transform: rotate(4deg);
-      box-shadow: 0 12px 22px rgba(11,24,32,0.16);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .intro-strip {
       text-align: center;
-      padding: 12px;
-      font-size: 12px;
-      font-weight: 900;
-      color: rgba(11,24,32,0.62);
+      background:
+        radial-gradient(circle at 25% 10%, rgba(217,154,40,0.14), transparent 26%),
+        var(--cream);
+      border-bottom: 1px solid rgba(11,24,32,0.10);
     }
 
-    .note-scrap {
-      position: absolute;
-      left: 22px;
-      bottom: 24px;
-      width: 62%;
-      background: #f1dfbd;
-      color: #264b68;
-      padding: 14px;
-      font-family: "Courier New", monospace;
-      font-size: 16px;
-      line-height: 1.25;
-      transform: rotate(-3deg);
-      box-shadow: 0 10px 20px rgba(11,24,32,0.12);
-    }
-
-    .mini-steps {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-top: 24px;
-    }
-
-    .mini-steps span {
-      display: block;
-      padding: 12px;
-      border: 1px solid rgba(244,234,215,0.22);
-      color: rgba(244,234,215,0.88);
-      font-size: 12px;
-      letter-spacing: 0.08em;
+    .intro-strip h2 {
+      margin: 0;
+      font-size: clamp(36px, 4.8vw, 68px);
+      line-height: 0.95;
+      letter-spacing: -0.05em;
       text-transform: uppercase;
-      font-weight: 900;
     }
 
-    .takeaway-slide h3 {
-      font-size: 42px;
-    }
-
-    .takeaway-slide h3::after {
-      content: "";
-      display: block;
-      width: 70px;
-      height: 3px;
-      background: var(--gold);
-      margin: 18px 0;
-    }
-
-    .chair-mark {
-      position: absolute;
-      right: 26px;
-      bottom: 28px;
-      width: 84px;
-      height: 64px;
-      border: 4px solid var(--blue);
-      color: var(--blue);
-      display: grid;
-      place-items: center;
-      font-size: 28px;
-      font-weight: 900;
-    }
-
-    .framework-top {
-      display: grid;
-      grid-template-columns: 0.92fr 1.08fr;
-      gap: 42px;
-      align-items: end;
-      margin-bottom: 38px;
-    }
-
-    .framework-top p {
-      max-width: 620px;
-      color: rgba(244,234,215,0.76);
+    .intro-strip p {
+      max-width: 760px;
+      margin: 18px auto 0;
+      color: var(--muted);
       font-size: 19px;
       line-height: 1.55;
     }
 
-    .framework-image-wrap {
-      margin-top: 28px;
-      padding: 14px;
-      background: rgba(244, 234, 215, 0.08);
-      border: 1px solid rgba(244, 234, 215, 0.18);
-      box-shadow: 0 20px 44px rgba(0,0,0,0.25);
+    .sample-stack {
+      display: grid;
+      gap: 38px;
+      background:
+        linear-gradient(180deg, #f8ecd4 0%, var(--cream) 100%);
     }
 
-    .framework-image-wrap img {
+    .sample-page {
+      position: relative;
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 36px;
+      align-items: stretch;
+      min-height: 470px;
+      padding: 38px;
+      background: var(--cream2);
+      border: 1px solid rgba(11,24,32,0.16);
+      box-shadow: 0 18px 44px rgba(11,24,32,0.16);
+      overflow: hidden;
+    }
+
+    .sample-page.dark {
+      background:
+        radial-gradient(circle at 80% 10%, rgba(217,154,40,0.12), transparent 30%),
+        var(--navy);
+      color: var(--cream);
+      border-color: rgba(244,234,215,0.14);
+    }
+
+    .page-number {
+      position: absolute;
+      top: 0;
+      left: 28px;
+      width: 62px;
+      height: 78px;
+      background: var(--red);
+      color: var(--cream);
+      display: grid;
+      place-items: center;
+      font-size: 27px;
+      font-weight: 950;
+      letter-spacing: -0.04em;
+      z-index: 3;
+    }
+
+    .page-number::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -18px;
+      width: 0;
+      height: 0;
+      border-left: 31px solid transparent;
+      border-right: 31px solid transparent;
+      border-top: 18px solid var(--red);
+    }
+
+    .slide-kicker {
+      color: var(--gold);
+      font-size: 13px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 950;
+      margin-bottom: 18px;
+    }
+
+    .sample-page h3 {
+      margin: 0;
+      font-size: clamp(42px, 5.6vw, 84px);
+      line-height: 0.92;
+      letter-spacing: -0.06em;
+      text-transform: uppercase;
+    }
+
+    .sample-page h3 .red {
+      color: var(--red);
+    }
+
+    .sample-page h3 .gold {
+      color: var(--gold);
+    }
+
+    .sample-copy {
+      margin-top: 24px;
+      max-width: 560px;
+      font-size: 19px;
+      line-height: 1.48;
+      color: rgba(11,24,32,0.72);
+    }
+
+    .dark .sample-copy {
+      color: rgba(244,234,215,0.82);
+    }
+
+    .sample-note {
+      margin-top: 24px;
+      padding: 16px 18px;
+      display: inline-block;
+      background: rgba(217,154,40,0.18);
+      border-left: 4px solid var(--gold);
+      font-family: "Courier New", monospace;
+      font-size: 15px;
+      line-height: 1.45;
+    }
+
+    .visual-area {
+      position: relative;
+      min-height: 350px;
+    }
+
+    .paper {
+      background: #f6e7c9;
+      color: var(--ink);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.18);
+      border: 1px solid rgba(11,24,32,0.12);
+    }
+
+    .photo-card {
+      position: absolute;
+      background:
+        linear-gradient(135deg, rgba(37,118,168,0.18), rgba(217,154,40,0.22)),
+        #e7d1ac;
+      border: 8px solid #fff5df;
+      box-shadow: 0 16px 34px rgba(0,0,0,0.22);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      text-align: center;
+      font-weight: 900;
+      color: rgba(11,24,32,0.58);
+    }
+
+    .sticky-note {
+      position: absolute;
+      width: 150px;
+      min-height: 145px;
+      padding: 18px;
+      background: #f2d47a;
+      color: rgba(11,24,32,0.72);
+      transform: rotate(-7deg);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.18);
+      font-family: "Courier New", monospace;
+      font-weight: 900;
+    }
+
+    .sticky-note .llama {
+      font-size: 54px;
       display: block;
-      width: 100%;
-      height: auto;
+      margin-top: 14px;
     }
 
-    .step-grid {
+    .film-strip {
+      position: absolute;
+      height: 42px;
+      width: 260px;
+      background:
+        repeating-linear-gradient(
+          90deg,
+          #111 0 18px,
+          #f4ead7 18px 26px,
+          #111 26px 44px
+        );
+      opacity: 0.92;
+      transform: rotate(-4deg);
+    }
+
+    .dynamite {
+      position: absolute;
+      width: 118px;
+      height: 220px;
+      background:
+        repeating-linear-gradient(
+          90deg,
+          #8e241c 0 24px,
+          #c44534 24px 48px
+        );
+      border-radius: 13px;
+      box-shadow: 0 20px 38px rgba(0,0,0,0.24);
+      transform: rotate(-9deg);
+    }
+
+    .dynamite::after {
+      content: "BIG IDEAS";
+      position: absolute;
+      left: 21px;
+      top: 34px;
+      color: #111;
+      font-weight: 950;
+      letter-spacing: 0.05em;
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      font-size: 15px;
+    }
+
+    .ribbon {
+      position: absolute;
+      width: 118px;
+      height: 188px;
+      background: var(--blue);
+      border-radius: 58px 58px 12px 12px;
+      color: var(--cream);
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      text-align: center;
+      padding-top: 38px;
+      font-weight: 950;
+      letter-spacing: 0.06em;
+      box-shadow: 0 14px 30px rgba(0,0,0,0.24);
+    }
+
+    .ribbon::after {
+      content: "★";
+      display: block;
+      position: absolute;
+      bottom: 46px;
+      color: var(--gold);
+      font-size: 22px;
+    }
+
+    .note-paper {
+      position: absolute;
+      padding: 20px;
+      background: #f3dfbd;
+      color: var(--ink);
+      font-family: "Courier New", monospace;
+      line-height: 1.45;
+      box-shadow: 0 14px 30px rgba(0,0,0,0.18);
+      transform: rotate(3deg);
+    }
+
+    .clapper {
+      position: absolute;
+      width: 310px;
+      background: #151515;
+      color: #f4ead7;
+      border: 1px solid rgba(244,234,215,0.2);
+      box-shadow: 0 16px 32px rgba(0,0,0,0.28);
+      transform: rotate(2deg);
+      font-family: "Courier New", monospace;
+    }
+
+    .clapper-top {
+      height: 44px;
+      background:
+        repeating-linear-gradient(
+          135deg,
+          #f4ead7 0 20px,
+          #151515 20px 40px
+        );
+      border-bottom: 1px solid rgba(244,234,215,0.25);
+    }
+
+    .clapper-body {
+      padding: 16px;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .slide-grid {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
-      gap: 16px;
-      margin-top: 40px;
+      gap: 14px;
+      margin-top: 34px;
     }
 
-    .step-card {
+    .os-card {
       background: var(--cream2);
       color: var(--ink);
-      min-height: 260px;
-      padding: 22px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      border-bottom: 8px solid var(--gold);
-      box-shadow: 0 14px 32px rgba(0,0,0,0.20);
+      padding: 18px 14px;
+      min-height: 210px;
+      border: 1px solid rgba(11,24,32,0.16);
+      border-bottom: 7px solid var(--gold);
+      box-shadow: 0 12px 26px rgba(0,0,0,0.18);
+      text-align: center;
     }
 
-    .step-card:nth-child(2),
-    .step-card:nth-child(5) {
+    .os-card:nth-child(2),
+    .os-card:nth-child(5) {
       border-bottom-color: var(--red);
     }
 
-    .step-card:nth-child(3) {
+    .os-card:nth-child(3) {
       border-bottom-color: var(--blue);
     }
 
-    .step-number {
-      width: 38px;
-      height: 38px;
+    .os-num {
+      width: 36px;
+      height: 36px;
       border-radius: 50%;
       background: var(--blue);
       color: white;
       display: grid;
       place-items: center;
-      font-weight: 900;
-      margin-bottom: 18px;
+      margin: 0 auto 14px;
+      font-weight: 950;
     }
 
-    .step-card h3 {
-      color: var(--red);
-      font-size: 26px;
-      line-height: 0.96;
-      letter-spacing: -0.04em;
-      text-transform: uppercase;
+    .os-icon {
+      font-size: 36px;
       margin-bottom: 12px;
     }
 
-    .step-card p {
-      font-size: 15px;
-      line-height: 1.42;
-      color: rgba(11,24,32,0.74);
-    }
-
-    .behavior {
-      margin-top: 18px;
-      color: var(--blue);
-      font-size: 11px;
-      letter-spacing: 0.13em;
+    .os-card h4 {
+      margin: 0 0 10px;
+      font-size: 18px;
+      color: var(--red);
       text-transform: uppercase;
-      font-weight: 900;
+      line-height: 0.95;
     }
 
-    .slide-system-grid,
-    .why-grid,
-    .about-grid {
+    .os-card p {
+      font-size: 13px;
+      line-height: 1.35;
+      color: rgba(11,24,32,0.72);
+    }
+
+    .three-pillars {
       display: grid;
-      gap: 22px;
-      margin-top: 40px;
-    }
-
-    .slide-system-grid {
-      grid-template-columns: repeat(4, 1fr);
-    }
-
-    .why-grid {
       grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 32px;
     }
 
-    .about-grid {
-      grid-template-columns: 0.8fr 1.2fr;
-      align-items: center;
+    .pillar {
+      padding: 22px;
+      background: rgba(244,234,215,0.08);
+      border: 1px solid rgba(244,234,215,0.18);
+      min-height: 190px;
     }
 
-    .system-card,
-    .why-card,
-    .about-card {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(244,234,215,0.16);
-      padding: 26px;
-      min-height: 210px;
-    }
-
-    .cream-section .system-card,
-    .cream-section .why-card,
-    .cream-section .about-card {
+    .pillar.light {
       background: rgba(11,24,32,0.06);
-      border: 1px solid rgba(11,24,32,0.15);
+      border-color: rgba(11,24,32,0.14);
     }
 
-    .system-card h3,
-    .why-card h3,
-    .about-card h3 {
-      margin: 0 0 12px;
+    .pillar .percent {
+      display: block;
       color: var(--gold);
+      font-size: 46px;
+      line-height: 1;
+      font-weight: 950;
+      letter-spacing: -0.05em;
+    }
+
+    .pillar h4 {
+      margin: 8px 0 12px;
+      font-size: 20px;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
-      font-size: 17px;
+      color: var(--red);
+      line-height: 1;
     }
 
-    .system-card p,
-    .why-card p,
-    .about-card p {
-      margin: 0;
-      color: inherit;
-      opacity: 0.76;
-      line-height: 1.5;
+    .pillar p {
+      font-size: 14px;
+      line-height: 1.42;
+      opacity: 0.78;
     }
 
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 24px;
-    }
-
-    .tag {
-      padding: 9px 12px;
-      background: var(--navy);
+    .closing-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 28px;
+      min-height: 54px;
+      padding: 0 32px;
+      background: var(--red);
       color: var(--cream);
-      font-size: 12px;
+      font-weight: 950;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      font-weight: 900;
+      border: 2px solid var(--gold);
     }
 
-    .close-section {
-      background:
-        linear-gradient(135deg, rgba(180,58,43,0.96), rgba(135,39,29,0.98));
+    .footer {
+      padding: 72px 7vw;
+      background: var(--red);
       color: var(--cream);
       text-align: center;
     }
 
-    .close-section h2 {
-      margin-bottom: 18px;
+    .footer h2 {
+      margin: 0 0 18px;
+      font-size: clamp(36px, 5vw, 76px);
+      line-height: 0.95;
+      letter-spacing: -0.05em;
+      text-transform: uppercase;
     }
 
-    .close-section p {
-      max-width: 740px;
+    .footer p {
+      max-width: 760px;
       margin: 0 auto 30px;
-      color: rgba(244,234,215,0.88);
       font-size: 20px;
       line-height: 1.5;
+      color: rgba(244,234,215,0.88);
     }
 
     @media (max-width: 1100px) {
-      .deck-grid,
-      .step-grid,
-      .slide-system-grid,
-      .why-grid {
-        grid-template-columns: 1fr 1fr;
+      .sample-page {
+        grid-template-columns: 1fr;
       }
 
-      .framework-top,
-      .about-grid {
-        grid-template-columns: 1fr;
+      .slide-grid,
+      .three-pillars {
+        grid-template-columns: 1fr 1fr;
       }
 
       .nav-links {
@@ -646,33 +634,35 @@
       }
     }
 
-    @media (max-width: 700px) {
+    @media (max-width: 720px) {
       .hero {
         min-height: 700px;
         background:
           linear-gradient(
             90deg,
-            rgba(11, 24, 32, 0.97) 0%,
-            rgba(11, 24, 32, 0.90) 45%,
-            rgba(11, 24, 32, 0.52) 100%
+            rgba(11, 24, 32, 0.96) 0%,
+            rgba(11, 24, 32, 0.86) 50%,
+            rgba(11, 24, 32, 0.38) 100%
           ),
           url("assets/assetshero-mockup.png") 62% center / cover no-repeat,
-          linear-gradient(135deg, #0b1820 0%, #102634 100%);
-      }
-
-      .deck-grid,
-      .step-grid,
-      .slide-system-grid,
-      .why-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .story-layout {
-        grid-template-columns: 1fr;
+          var(--navy);
       }
 
       section {
         padding: 58px 6vw;
+      }
+
+      .sample-page {
+        padding: 32px 22px;
+      }
+
+      .slide-grid,
+      .three-pillars {
+        grid-template-columns: 1fr;
+      }
+
+      .visual-area {
+        min-height: 430px;
       }
     }
   </style>
@@ -687,10 +677,9 @@
       </a>
 
       <div class="nav-links">
-        <a href="#preview">Preview</a>
+        <a href="#samples">Samples</a>
         <a href="#framework">Framework</a>
-        <a href="#steps">Five Steps</a>
-        <a href="#slides">Deck</a>
+        <a href="#system">System</a>
         <a href="#contact">Contact</a>
       </div>
 
@@ -708,13 +697,13 @@
         </h1>
 
         <p class="hero-copy">
-          A keynote system where executive clarity meets film production ritual,
-          indie nostalgia, and memorable weirdness.
+          Keynotes and pitch decks that cut through the noise. Big ideas,
+          told with story, style, and a little bit of beautifully safe chaos.
         </p>
 
         <div class="button-row">
-          <a class="button primary" href="#preview">Preview the Keynote →</a>
-          <a class="button" href="#framework">See the Framework</a>
+          <a class="button primary" href="#samples">View Sample Pages →</a>
+          <a class="button" href="#contact">Contact AC</a>
         </div>
 
         <div class="balance">
@@ -723,212 +712,252 @@
       </div>
     </header>
 
-    <section id="preview" class="cream-section deck-preview">
+    <section id="samples" class="intro-strip">
       <div class="eyebrow">Keynote preview</div>
-      <h2>A first look at the deck language.</h2>
-      <p class="section-intro">
-        The keynote should feel like a complete visual experience: part leadership system,
-        part film-set ritual, part strange little story machine.
+      <h2>5 sample keynote moments</h2>
+      <p>
+        A first-pass look at how the final keynote could feel: title, story,
+        framework, visual system, and closing takeaway.
       </p>
-
-      <div class="deck-grid">
-        <article class="deck-slide dark">
-          <div class="deck-label">Opening slide</div>
-          <div class="deck-title">
-            Playing
-            <span>with</span>
-            Dynamite
-          </div>
-          <p>A bold title card that gives the keynote scale before the first story begins.</p>
-          <div class="deck-prop"></div>
-          <div class="deck-footer">Big ideas. Film-set focus. Indie heart.</div>
-        </article>
-
-        <article class="deck-slide light">
-          <div class="deck-label">Story slide</div>
-          <div class="story-layout">
-            <div>
-              <h3>Behind the Scenes</h3>
-              <p>A photo-led format for production memories, odd details, and the moments that make the lesson real.</p>
-            </div>
-            <div class="photo-card">BTS / film memory</div>
-          </div>
-          <div class="note-scrap">Great talks don’t just happen. They’re built.</div>
-        </article>
-
-        <article class="deck-slide dark">
-          <div class="deck-label">Framework slide</div>
-          <h3>Picture’s Up!</h3>
-          <p>The film-production calls become a clear operating system for focus, momentum, and creative pressure.</p>
-          <div class="mini-steps">
-            <span>Align</span>
-            <span>Signal</span>
-            <span>Focus</span>
-            <span>Wrap</span>
-          </div>
-          <div class="deck-footer">Clarity. Story. Action. Repeat.</div>
-        </article>
-
-        <article class="deck-slide light takeaway-slide">
-          <div class="deck-label">Takeaway slide</div>
-          <h3>Cut. Reset. Move On.</h3>
-          <p>A clean closing language that gives the audience something simple enough to remember and use.</p>
-          <div class="chair-mark">★</div>
-        </article>
-      </div>
     </section>
 
-    <section id="framework" class="dark-section">
-      <div class="framework-top">
+    <main class="sample-stack">
+      <section class="sample-page dark">
+        <div class="page-number">01</div>
+
         <div>
-          <div class="eyebrow">The Hollywood OS</div>
-          <h2>Film-set ritual becomes executive behavior.</h2>
-        </div>
+          <div class="slide-kicker">Opening slide</div>
+          <h3>
+            Playing<br />
+            with<br />
+            <span class="red">Dynamite</span>
+          </h3>
 
-        <p>
-          The core keynote idea becomes a branded five-part system: clear enough for a boardroom,
-          cinematic enough for the stage, and memorable enough to travel home with the audience.
-        </p>
-      </div>
-
-      <div class="framework-image-wrap">
-        <img src="assets/framework-section.png" alt="Redesigned Hollywood OS framework using AC Cable camera-head director characters" />
-      </div>
-    </section>
-
-    <section id="steps" class="cream-section">
-      <div class="eyebrow">The five-part system</div>
-      <h2>Five calls. One shared language.</h2>
-      <p class="section-intro">
-        Each production call gives the audience a practical behavior they can take back to their team.
-      </p>
-
-      <div class="step-grid">
-        <article class="step-card">
-          <div>
-            <div class="step-number">01</div>
-            <h3>Picture’s Up!</h3>
-            <p>Preparation ends. Team focus begins.</p>
-          </div>
-          <div class="behavior">Behavior: Align the room.</div>
-        </article>
-
-        <article class="step-card">
-          <div>
-            <div class="step-number">02</div>
-            <h3>Rolling!</h3>
-            <p>The room is live. Energy starts moving.</p>
-          </div>
-          <div class="behavior">Behavior: Signal the start.</div>
-        </article>
-
-        <article class="step-card">
-          <div>
-            <div class="step-number">03</div>
-            <h3>Action!</h3>
-            <p>The goal is clear. Work officially begins.</p>
-          </div>
-          <div class="behavior">Behavior: Focus the work.</div>
-        </article>
-
-        <article class="step-card">
-          <div>
-            <div class="step-number">04</div>
-            <h3>Cut!</h3>
-            <p>Pause, evaluate, and adjust without panic.</p>
-          </div>
-          <div class="behavior">Behavior: Reset with purpose.</div>
-        </article>
-
-        <article class="step-card">
-          <div>
-            <div class="step-number">05</div>
-            <h3>That’s a Wrap!</h3>
-            <p>Finish strong. Name the win. Carry the lesson forward.</p>
-          </div>
-          <div class="behavior">Behavior: Close the loop.</div>
-        </article>
-      </div>
-    </section>
-
-    <section id="slides" class="dark-section">
-      <div class="eyebrow">Deck language</div>
-      <h2>A slide system built for stories, frameworks, and takeaways.</h2>
-      <p class="section-intro">
-        The deck should not feel like one repeated template. It needs a small family of slide types
-        that can carry the rhythm of the talk.
-      </p>
-
-      <div class="slide-system-grid">
-        <article class="system-card">
-          <h3>Title Cards</h3>
-          <p>Large, cinematic openings for each major beat.</p>
-        </article>
-
-        <article class="system-card">
-          <h3>Story Slides</h3>
-          <p>Behind-the-scenes images, captions, and small production details that make the lesson feel lived-in.</p>
-        </article>
-
-        <article class="system-card">
-          <h3>Framework Slides</h3>
-          <p>Simple diagrams and step systems that translate film language into leadership behavior.</p>
-        </article>
-
-        <article class="system-card">
-          <h3>Takeaway Slides</h3>
-          <p>Clean closing moments with one useful idea the audience can remember tomorrow.</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="about" class="cream-section">
-      <div class="about-grid">
-        <div>
-          <div class="eyebrow">The speaker</div>
-          <h2>Sean Covel turns production stories into leadership systems.</h2>
-        </div>
-
-        <div class="about-card">
-          <h3>Story + system</h3>
-          <p>
-            Sean’s keynote works because the stories are funny, specific, and human — but underneath them is a practical operating system.
-            The visual design should make both sides visible: the warmth of the storyteller and the clarity of the framework.
+          <p class="sample-copy">
+            Big ideas told with clarity, story, and memorable impact.
+            The opening slide should feel confident, cinematic, and instantly ownable.
           </p>
 
-          <div class="tags">
-            <span class="tag">Producer</span>
-            <span class="tag">Storyteller</span>
-            <span class="tag">Keynote Speaker</span>
-            <span class="tag">Creative Systems Thinker</span>
+          <div class="sample-note">
+            Big title. Strong stage presence.<br />
+            Immediate personality.
           </div>
         </div>
-      </div>
-    </section>
 
-    <section id="why" class="dark-section">
-      <div class="eyebrow">Why it works</div>
-      <h2>Professional enough to trust. Weird enough to remember.</h2>
+        <div class="visual-area">
+          <div class="photo-card" style="width: 280px; height: 190px; right: 38px; top: 24px; transform: rotate(4deg);">
+            Fair / Stage Memory
+          </div>
 
-      <div class="why-grid">
-        <article class="why-card">
-          <h3>Clear</h3>
-          <p>Strong hierarchy, clean structure, and readable slide systems make the keynote feel credible in an executive room.</p>
-        </article>
+          <div class="ribbon" style="right: 0; top: 0;">
+            BEST<br />IN<br />SHOW
+          </div>
 
-        <article class="why-card">
-          <h3>Cinematic</h3>
-          <p>Production cues, title-card language, and film-set rituals make the talk feel larger than a standard business presentation.</p>
-        </article>
+          <div class="sticky-note" style="left: 22px; top: 110px;">
+            llama note
+            <span class="llama">🦙</span>
+          </div>
 
-        <article class="why-card">
-          <h3>Memorable</h3>
-          <p>The county fair charm, tactile notes, llama weirdness, and Big Ideas dynamite give the audience visual hooks they can recall later.</p>
-        </article>
-      </div>
-    </section>
+          <div class="dynamite" style="right: 130px; bottom: 22px;"></div>
 
-    <footer id="contact" class="close-section">
+          <div class="clapper" style="right: 0; bottom: 0;">
+            <div class="clapper-top"></div>
+            <div class="clapper-body">
+              PROD. Playing with Dynamite<br />
+              SCENE 01 / TAKE 01 / ROLL MANY<br />
+              CAMERA: Curiosity
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="sample-page">
+        <div class="page-number">02</div>
+
+        <div>
+          <div class="slide-kicker">Story slide</div>
+          <h3>
+            Behind<br />
+            the<br />
+            <span class="red">Scenes</span>
+          </h3>
+
+          <p class="sample-copy">
+            The best ideas don’t arrive as bullet points. They arrive as
+            moments, stories, strange decisions, and set-piece memories.
+          </p>
+
+          <div class="sample-note">
+            The Hook: start with tension or truth.<br />
+            The Human: make it personal.<br />
+            The Shift: new perspective.
+          </div>
+        </div>
+
+        <div class="visual-area">
+          <div class="photo-card" style="width: 250px; height: 160px; left: 20px; top: 28px; transform: rotate(-3deg);">
+            Director Chair / Set Moment
+          </div>
+
+          <div class="photo-card" style="width: 230px; height: 150px; right: 18px; top: 60px; transform: rotate(5deg);">
+            County Fair Night
+          </div>
+
+          <div class="note-paper" style="width: 250px; right: 52px; bottom: 36px;">
+            PLAYING WITH DYNAMITE<br />
+            Scene 02<br /><br />
+            Ferris wheel spins.<br />
+            Lights blur.<br />
+            Someone takes a breath.
+          </div>
+
+          <div class="film-strip" style="left: 12px; bottom: 34px;"></div>
+        </div>
+      </section>
+
+      <section id="framework" class="sample-page dark">
+        <div class="page-number">03</div>
+
+        <div style="grid-column: 1 / -1;">
+          <div class="slide-kicker">Framework slide</div>
+          <h3>
+            The <span class="red">Hollywood</span> OS
+          </h3>
+
+          <p class="sample-copy">
+            A five-part operating system for leading creative teams under pressure.
+          </p>
+
+          <div class="slide-grid">
+            <article class="os-card">
+              <div class="os-num">1</div>
+              <div class="os-icon">🎞️</div>
+              <h4>Picture’s Up!</h4>
+              <p>Preparation ends. Team focus begins.</p>
+            </article>
+
+            <article class="os-card">
+              <div class="os-num">2</div>
+              <div class="os-icon">●</div>
+              <h4>Rolling!</h4>
+              <p>The room is live. Energy starts moving.</p>
+            </article>
+
+            <article class="os-card">
+              <div class="os-num">3</div>
+              <div class="os-icon">🎬</div>
+              <h4>Action!</h4>
+              <p>The goal is clear. Work officially begins.</p>
+            </article>
+
+            <article class="os-card">
+              <div class="os-num">4</div>
+              <div class="os-icon">✂</div>
+              <h4>Cut!</h4>
+              <p>Pause, evaluate, and adjust.</p>
+            </article>
+
+            <article class="os-card">
+              <div class="os-num">5</div>
+              <div class="os-icon">★</div>
+              <h4>That’s a Wrap!</h4>
+              <p>Finish strong. Something now exists that didn’t this morning.</p>
+            </article>
+          </div>
+
+          <div class="sample-note" style="margin-top: 28px;">
+            Clarity is the call. Leadership is the cut.
+          </div>
+        </div>
+      </section>
+
+      <section id="system" class="sample-page">
+        <div class="page-number">04</div>
+
+        <div style="grid-column: 1 / -1;">
+          <div class="slide-kicker">Visual system slide</div>
+          <h3>
+            Corporate Clarity.<br />
+            <span class="red">Cinematic Energy.</span><br />
+            <span class="gold">Indie Charm.</span>
+          </h3>
+
+          <p class="sample-copy">
+            A keynote system built to feel trustworthy, memorable, and alive.
+          </p>
+
+          <div class="three-pillars">
+            <article class="pillar light">
+              <span class="percent">40%</span>
+              <h4>Corporate Clarity</h4>
+              <p>Executive focus, clean hierarchy, and business outcomes that matter.</p>
+            </article>
+
+            <article class="pillar light">
+              <span class="percent">30%</span>
+              <h4>Cinematic Energy</h4>
+              <p>Visual storytelling, stage presence, motion, contrast, and momentum.</p>
+            </article>
+
+            <article class="pillar light">
+              <span class="percent">30%</span>
+              <h4>Indie Charm</h4>
+              <p>Human, witty, tactile, and specific enough to be remembered.</p>
+            </article>
+          </div>
+
+          <div class="sample-note">
+            Structure makes it trustworthy. Style makes it memorable.
+          </div>
+        </div>
+      </section>
+
+      <section class="sample-page dark">
+        <div class="page-number">05</div>
+
+        <div>
+          <div class="slide-kicker">Takeaway slide</div>
+          <h3>
+            Big Ideas.<br />
+            <span class="red">Told Well.</span><br />
+            <span class="gold">Win.</span>
+          </h3>
+
+          <p class="sample-copy">
+            Leave the room with something people can feel, repeat, and act on.
+          </p>
+
+          <div class="sample-note">
+            Clarity gets attention.<br />
+            Story creates momentum.<br />
+            Personality makes it stick.
+          </div>
+
+          <a class="closing-cta" href="mailto:accable01@gmail.com">
+            Build the Deck →
+          </a>
+        </div>
+
+        <div class="visual-area">
+          <div class="photo-card" style="width: 290px; height: 190px; right: 36px; top: 24px; transform: rotate(3deg);">
+            Speaker Moment
+          </div>
+
+          <div class="note-paper" style="width: 240px; left: 28px; top: 88px; transform: rotate(-4deg);">
+            Lights.<br />
+            Camera.<br />
+            Sincerity.<br />
+            Let’s go.
+          </div>
+
+          <div class="dynamite" style="right: 45px; bottom: 28px;"></div>
+
+          <div class="film-strip" style="left: 70px; bottom: 50px; transform: rotate(4deg);"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="contact" class="footer">
       <div class="eyebrow">Next step</div>
       <h2>Let’s make the keynote unforgettable.</h2>
       <p>
